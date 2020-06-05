@@ -3,26 +3,59 @@
 
     <head>
         <title>Worlds Best Calculator</title>
+        <!-- CSS only-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <style>
 
         </style>
         <script>
 
+            var calculator = {
+                // takes in two numbers and returns the result
+                addNumbers: function (numberOne, numberTwo) {
+                    return numberOne + numberTwo;
+                },
+                subtractNumbers: function (numberOne, numberTwo) {
+                    return numberOne - numberTwo;
+                }
+            };
+
+             // use the custom function to add these numbers
+
+            var additionResult = calculator.addNumbers(87, 2);
+            var subtractionResult = calculator.subtractNumbers(50, 25);
+
+
+
+            console.log( additionResult, subtractionResult );
+
         </script>
 
     </head>
+
     <body>
        <div>Header</div>
        <div>
-           Main Content of the Calc
-           <span>(see intructions below ddd)</span>
-           <ul>
-               <li>Fill in Numbers</li>
-               <li>Click a Button</li>
-               <li>See the Results</li>
-           </ul>
-
-       
+         <!--
+             -allow two numbers to be entered
+             -show buttons for add and subtract
+             -show the result
+         -->
+       <div>
+           Number 1:
+           <input type="number" name="numberOne">
+       </div>
+       <div>
+        Number 2:
+        <input type="number" name="numberTwo">
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary">Add</button>
+        <button type="button" class="btn btn-primary">Subtract</button>
+    </div>
+       </div>
+       <div>
+           <input name="result" disabled />
        </div>
        <div>Footer</div>
 
