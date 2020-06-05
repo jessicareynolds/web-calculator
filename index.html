@@ -12,11 +12,18 @@
 
             var calculator = {
                 // takes in two numbers and returns the result
-                addNumbers: function (numberOne, numberTwo) {
-                    return numberOne + numberTwo;
+                addNumbers: function () {
+                    var numberOne = document.forms.inputs.numberOne.value;
+                    var numberTwo = document.forms.inputs.numberTwo.value;
+
+                    document.forms.inputs.result.value = parseInt(numberOne) + parseInt(numberTwo);
                 },
-                subtractNumbers: function (numberOne, numberTwo) {
-                    return numberOne - numberTwo;
+                subtractNumbers: function () {
+                    var numberOne = document.forms.inputs.numberOne.value;
+                    var numberTwo = document.forms.inputs.numberTwo.value;
+
+                    document.forms.inputs.result.value = parseInt(numberOne) - parseInt(numberTwo);
+                    
                 }
             };
 
@@ -41,22 +48,26 @@
              -show buttons for add and subtract
              -show the result
          -->
-       <div>
-           Number 1:
-           <input type="number" name="numberOne">
-       </div>
-       <div>
-        Number 2:
-        <input type="number" name="numberTwo">
-    </div>
-    <div>
-        <button type="button" class="btn btn-primary">Add</button>
-        <button type="button" class="btn btn-primary">Subtract</button>
-    </div>
-       </div>
-       <div>
-           <input name="result" disabled />
-       </div>
+
+         <form name="inputs">
+            <div>
+                Number 1:
+                <input type="number" name="numberOne" class="form-control" placeholder="First number" aria-label="Number1">
+            </div>
+            <div>
+             Number 2:
+             <input type="number" name="numberTwo" class="form-control" placeholder="Second number" aria-label="Number2">
+         </div>
+         <div>
+             <button type="button" class="btn btn-primary" onclick="calculator.addNumbers ()">Add</button>
+             <button type="button" class="btn btn-primary" onclick="calculator.subtractNumbers()">Subtract</button>
+         </div>
+            </div>
+            <div>
+                <input name="result" value="0" class="form-control" disabled />
+            </div>
+         </form>
+  
        <div>Footer</div>
 
     </body>
