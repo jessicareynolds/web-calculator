@@ -7,17 +7,15 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
       
         <style>
-            body {background-color:;
-                  }
 
             h2 {
-            Font-size: 24px;
-            color:#22D3E3;
+
+                Font-size: 24px;
+                color:#22D3E3;
                 padding:15px;
                 margin: 10px;
                 font-weight:bold;
-                
-                width: 400px;
+                width: 500px;
                 background-color: #0A8A96;
                 text-align:center;
                 
@@ -25,53 +23,60 @@
          
       
             #problem {
+
                display: flex;
                flex-wrap: wrap;
                text-align: left;
                align-content: center;
-
-
                background-color: #FF8F40;
                font-weight:bold;
                color:white;
-
-        
-               width: 400px;
+               width: 500px;
                padding:10px;
                margin: 10px;
-               
-            }  
+
+             }  
+
             #solution {
+
                display: flex;
                flex-wrap: wrap;
-               text-align: center;
-               align-content: center;
+               text-align: left;
+               align-content: left;
+               background-color: #0A8A96;
+               padding: 10px;
+               margin-top: 15px;
                
-            
-            background-color: #0A8A96;
-               width: 400px;
-               padding:10px;
-               margin: 10px;
             }      
 
+            .form-control {
+
+                width: 300px;
+                display: flex;
+                flex-wrap: wrap;
+                
+            }
+
+        
             .btn {
                 
                 color: white;
                 background-color: #0A8A96;
                 padding: 7px;
-                margin-top: 15px;
+                margin-top: 20px;
                 
                  }  
 
 
-         footer {
-             color: #22D3E3;
-             font-style:italic;
-             font-size:small;
-             text-align:left;
-             padding:10px;
-             margin: 10px;
-         }
+             footer {
+            
+                 color: #22D3E3;
+                 font-style:italic;
+                 font-size:small;
+                 text-align:left;
+                 padding:10px;
+             
+             }
         </style>
         <script>
 
@@ -89,17 +94,33 @@
 
                     document.forms.inputs.result.value = parseInt(numberOne) - parseInt(numberTwo);
                     
+                },
+                multiplyNumbers: function () {
+                    var numberOne = document.forms.inputs.numberOne.value;
+                    var numberTwo = document.forms.inputs.numberTwo.value;
+
+                    document.forms.inputs.result.value = parseInt(numberOne) * parseInt(numberTwo);
+                },
+                divideNumbers: function () {
+                    var numberOne = document.forms.inputs.numberOne.value;
+                    var numberTwo = document.forms.inputs.numberTwo.value;
+
+                    document.forms.inputs.result.value = parseInt(numberOne) / parseInt(numberTwo);
+                    
                 }
+
             };
 
              // use the custom function to add these numbers
 
             var additionResult = calculator.addNumbers(87, 2);
             var subtractionResult = calculator.subtractNumbers(50, 25);
+            var multiplicationResult = calculator.multiplyNumbers(87, 2);
+            var divisionResult = calculator.divideNumbers(50, 2);
 
 
 
-            console.log( additionResult, subtractionResult );
+            console.log( additionResult, subtractionResult, multiplicationResult, divisionResult );
 
         </script>
 
@@ -107,7 +128,7 @@
 
     <body>
        <h2>World's Most Simple Calculator!</h2>
-       <div id="problem">
+       
          <!--
              -allow two numbers to be entered
              -show buttons for add and subtract
@@ -115,21 +136,24 @@
          -->
 
          <form name="inputs">
+        <div id="problem">
+
             <div>
                 Number 1:
-                <input type="number" name="numberOne" class="form-control" placeholder="Sup!" aria-label="Number1">
+                <input type="number" name="numberOne" class="form-control" placeholder="First Number" aria-label="Number1">
             </div>
             <div>
              Number 2:
-             <input type="number" name="numberTwo" class="form-control" placeholder="Sup Again!" aria-label="Number2">
+             <input type="number" name="numberTwo" class="form-control" placeholder="Second Number" aria-label="Number2">
          </div>
          <div>
              <button type="button" class="btn btn-primary" onclick="calculator.addNumbers ()">Add</button>
              <button type="button" class="btn btn-primary" onclick="calculator.subtractNumbers()">Subtract</button>
-         </div>
+             <button type="button" class="btn btn-primary" onclick="calculator.multiplyNumbers ()">Multiply</button>
+             <button type="button" class="btn btn-primary" onclick="calculator.divideNumbers()">Divide</button>
         </div>
 
-            <div id="solution">
+            <div id="solution"> 
                 <input name="result" value="0" class="form-control" disabled/>
             </div>
          </form>
